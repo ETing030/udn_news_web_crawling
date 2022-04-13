@@ -8,8 +8,10 @@
 2. 對新聞內文進行刪去英數字和斷詞處理，並統整所有文章的類別，將類別限縮到 15 種
 3. 利用 Term Frequency 與 TF-IDF 進行特徵處理
 4. 用不同機器學習模型，以 80% 的資料為訓練集訓練，途中嘗試不同的參數值。模型：Logistic Regression, SVM, XGBoost, Random Forest
-5. 以剩下 20% 的資料來測試模型，並觀察其分類結果
-註：特徵處理與訓練模型的部分是來自　https://tlyu0419.github.io/2020/04/04/Text-Classification/?fbclid=IwAR2t27jNAu-FxEQs0r2UwAmQZu_HEH0Ou9aYibQJAnvh9L9gZk1dTMcI0Fc
+5. 以剩下 20% 的資料來測試模型，並觀察其分類結果  
+
+註：特徵處理與訓練模型的部分是來自  
+https://tlyu0419.github.io/2020/04/04/Text-Classification/?fbclid=IwAR2t27jNAu-FxEQs0r2UwAmQZu_HEH0Ou9aYibQJAnvh9L9gZk1dTMcI0Fc  
 但目前連結無效，不過 github 找的到人 :)
 
 ## 關於 此 repo
