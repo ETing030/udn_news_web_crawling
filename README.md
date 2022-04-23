@@ -47,10 +47,10 @@ https://udn.com/news/breaknews/1/99#breaknews
 
 
 ### `聯合新聞網資料處理與分類.ipynb`
-- 針對`聯合報.csv`進行內文處理、統整類別、特徵處理並測試訓練模型的步驟
-- `聯合報.csv`為當初作為訓練模型的資料，共 4000 筆
+- 針對 `聯合報.csv` 進行內文處理、統整類別、特徵處理並測試訓練模型
+- `聯合報.csv` 為當初作為訓練模型的資料，共 4000 筆
 - 由於聯合新聞網的部分新聞連結會轉移至其他頁面格式（要抓取之內容所對應的 xpath 與他者不同），或是該連結網站須為 VIP 才能閱覽的文章，使得這些新聞可能沒有標籤或內文，必須將其除去。之後，以**人工的方式**將新聞中非內文的部分除去，再將內文轉換為 json 套件可以讀取的形式，並用 re 套件捨去標點符號、英文及數字。統整類別的部分則是只留下主類別，亦即 tag 欄位中第一個詞，最後再用 jieba 套件將內文斷詞
-- 針對有無斷詞的內文分別以 sklearn.feature_extraction.text 中的 CountVectorizer 和 TfidfVectorizer 進行特徵處理，並以 LogisticRegression 作為模型，用 80% 的資料去訓練，並測試其準確度
+- 針對有無斷詞的內文分別以 sklearn.feature_extraction.text 中的 CountVectorizer 和 TfidfVectorizer 進行特徵處理，並以 Logistic Regression 作為模型，用 80% 的資料去訓練，並測試其準確度
 
 <div align=center>
  
@@ -64,4 +64,28 @@ https://udn.com/news/breaknews/1/99#breaknews
 </div>
 
 ### `新聞內容統整和文字雲.ipynb`
-- 待補充說明
+- 針對 `新聞分類統整.csv` 進行內文處理、統整類別、特徵處理並測試訓練模型
+- `新聞分類統整.csv` 即為起初所說，約 9240 筆資料，經前面新聞聯合網刪去部分文章後，剩下約 9200 筆資料
+- 經過 re 和 jieba 套件處理內文，並分別用 CountVectorizer 和 TfidfVectorizer 進行特徵處理
+- 分別用 Logistic Regression、XGBoost 和 linear SVM 作為模型，以 80% 的資料作為訓練集，並測試其準確度
+- 以下為 內文經斷詞的準確度
+
+<div align=center>
+ 
+  模型  | 特徵處理 | training accuracy | testing accuracy 
+:---:  | :---: | :---: | :---: 
+Logistic Regression  | CountVectorizer | 1.000 | 0.809
+XGBoost  | CountVectorizer | 1.000 | 0.847
+Linear SVM  | CountVectorizer | 1.000 | 0.809
+Logistic Regression  | TfidfVectorizer | 0.890 | 0.768
+XGBoost  | TfidfVectorizer | 1.000 | 0.835
+Linear SVM  | TfidfVectorizer | 0.9984 | 0.975
+  
+</div>
+
+- 把各模型的分類結果和實際新聞類別統合成 DataFrame 並匯出，即 `預測結果比對.csv`
+- 試圖為每個類別製作文字雲
+
+
+---
+- 待新增討論
