@@ -82,9 +82,13 @@ Linear SVM  | TfidfVectorizer | 0.9984 | 0.975
   
 </div>
 
-- 把各模型的分類結果和實際新聞類別統合成 DataFrame 並匯出，即 `預測結果比對.csv`
+- 把各模型的分類結果和實際新聞類別統合成 DataFrame 並匯出，即 `預測結果比對.csv`，
+- 列出最多模型預測錯誤的文章，如下圖，文章為「影視與娛樂」類別，但所有模型都將其歸類在錯誤類別
+
+<p align=center>
+  <img src='https://user-images.githubusercontent.com/39528069/167358739-5e86ab0c-65df-42fb-bc47-be0247560472.png' width='800'>
+</p>
+
 - 試圖為每個類別製作文字雲
 
 
----
-- 待新增討論
